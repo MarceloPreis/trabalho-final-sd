@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Cadastro de Conta Bancária</title>
+</head>
+<body>
+    <form id="cadastroContaForm" action="/submit" method="post">
+        <label for="type">Tipo de Conta:</label>
+        <select id="type" name="type" required>
+            <option value="">Selecione o tipo de conta</option>
+            <option value="corrente">Conta Corrente</option>
+            <option value="poupanca">Conta Poupança</option>
+        </select><br><br>
+
+        <label for="bank_code">Código do Banco:</label>
+        <input type="text" id="bank_code" name="bank_code" required><br><br>
+
+        <label for="account">Número da Conta:</label>
+        <input type="text" id="account" name="account" required><br><br>
+
+        <label for="agency">Agência:</label>
+        <input type="text" id="agency" name="agency" required><br><br>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <script>
+        document.getElementById('cadastroContaForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o comportamento padrão do formulário
+
+            const formData = new FormData(event.target); // Cria um objeto FormData com os dados do formulário
+
+            fetch('/bankAccount', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json()) // Converte a resposta para JSON
+            .then(data => console.log(data)) // Imprime os dados recebidos no console
+            .catch(error => console.error('Erro:', error)); // Trata erros
+        });
+
+    </script>
+</body>
+</html>
