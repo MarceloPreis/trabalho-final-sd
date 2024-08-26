@@ -6,7 +6,7 @@ services:
     ports:
       - "3001:3000"
     environment:
-      - DATABASE_URL=mongodb://trabalho-final-mongo1-1:27017
+      - DATABASE_URL=mongodb://trabalho-final-sd-mongo1-1:27017
       - SERVER_NAME=app1
     depends_on:
       - mongo1
@@ -16,7 +16,7 @@ services:
     ports:
       - "3002:3000"
     environment:
-      - DATABASE_URL=mongodb://trabalho-final-mongo2-1:27018
+      - DATABASE_URL=mongodb://trabalho-final-sd-mongo2-1:27018
       - SERVER_NAME=app2
     depends_on:
       - mongo2
@@ -26,7 +26,7 @@ services:
     ports:
       - "3003:3000"
     environment:
-      - DATABASE_URL=mongodb://trabalho-final-mongo3-1:27019
+      - DATABASE_URL=mongodb://trabalho-final-sd-mongo3-1:27019
       - SERVER_NAME=app3
     depends_on:
       - mongo3
