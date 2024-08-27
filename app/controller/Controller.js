@@ -26,13 +26,15 @@ module.exports = class Controller {
         return this.Database.findOne(this.mongooseModel, data)
     }
 
-    update(data) {
-    }
-
-    delete(data) {
-    }
-
     list(filters) {
         return this.Database.list(this.mongooseModel, filters);
+    }
+
+    update(data) {
+        return this.Database.update(this.mongooseModel, data);
+    }
+    
+    delete(data) {
+        return this.Database.delete(this.mongooseModel, data);
     }
 }
